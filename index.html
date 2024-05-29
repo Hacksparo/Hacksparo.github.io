@@ -127,7 +127,7 @@
         });
 
         // Typing effect function
-        function typeMessage(message, elementId, delay) {
+        function typeMessage(message, elementId, delay, callback) {
             const typingSpeed = 50; // Adjust typing speed here
             const target = document.getElementById(elementId);
             let index = 0;
@@ -138,20 +138,20 @@
                         index++;
                     } else {
                         clearInterval(typingInterval);
+                        if (callback) callback();
                     }
                 }, typingSpeed);
             }, delay);
         }
 
-        // Call the typing function for each message
-        typeMessage("Hello friend, I have been watching you. And if you are here, it is only your curiosity that brought you here.", "helloMessage", 0);
-        typeMessage("Remember, even the paranoid have enemies. Welcome to the world of Hacksparo.", "welcomeMessage", 8000);
-        
-        // Mr. Robot messages
-        setTimeout(() => {
-            typeMessage("We're all living in each other's paranoia. You asked me once why I hack, I hack to protect people from the illusion of control. Control is an illusion. Sometimes you need to lose control to gain it back.", "mrRobotMessage1", 16000);
-            typeMessage("The world is a dangerous place, not because of those who do evil, but because of those who look on and do nothing. The people who claim to want to change the world are always the ones most afraid of doing anything.", "mrRobotMessage2", 32000);
-        }, 16000); // Delay before typing the Mr. Robot messages
+        // Call the typing function for each message with callbacks for chaining
+        typeMessage("Hello friend, I have been watching you. And if you are here, it is only your curiosity that brought you here.", "helloMessage", 0, () => {
+            typeMessage("Remember, even the paranoid have enemies. Welcome to the world of Hacksparo.", "welcomeMessage", 0, () => {
+                typeMessage("We're all living in each other's paranoia. You asked me once why I hack, I hack to protect people from the illusion of control. Control is an illusion. Sometimes you need to lose control to gain it back.", "mrRobotMessage1", 0, () => {
+                    typeMessage("The world is a dangerous place, not because of those who do evil, but because of those who look on and do nothing. The people who claim to want to change the world are always the ones most afraid of doing anything.", "mrRobotMessage2", 0);
+                });
+            });
+        });
     </script>
 </body>
 </html>
