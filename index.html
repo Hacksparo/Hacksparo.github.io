@@ -79,7 +79,6 @@
         <section id="home" class="terminal">
             <p><span class="prompt">$ </span><span id="helloMessage"></span></p>
             <p><span class="prompt">$ </span><span id="welcomeMessage"></span></p>
-            <p><span class="prompt">$ </span><span id="descriptionMessage"></span></p>
             <p><span class="prompt">$ </span><span id="mrRobotMessage1"></span></p>
             <p><span class="prompt">$ </span><span id="mrRobotMessage2"></span></p>
         </section>
@@ -120,17 +119,14 @@
         }
 
         // Call the typing function for each message
-        typeMessage("Hello friend, I have been watching you. And if you are here, only your curiosity brought you here.", "helloMessage", 0);
+        typeMessage("Hello friend, I have been watching you. And if you are here, it is only your curiosity that brought you here.", "helloMessage", 0);
         typeMessage("Remember, even the paranoid have enemies. Welcome to the world of Hacksparo.", "welcomeMessage", 8000);
-        setTimeout(() => {
-            typeMessage("Welcome to Hacksparo Blog", "descriptionMessage", 4000);
-        }, 10000); // Delay before typing the third message
-
+        
         // Mr. Robot messages
         setTimeout(() => {
-            typeMessage("Control is an illusion.", "mrRobotMessage1", 6000);
-            typeMessage("We are all living in each other's paranoia.", "mrRobotMessage2", 12000);
-        }, 12000); // Delay before typing the Mr. Robot messages
+            typeMessage("We're all living in each other's paranoia. You asked me once why I hack, I hack to protect people from the illusion of control. Control is an illusion. Sometimes you need to lose control to gain it back.", "mrRobotMessage1", 16000);
+            typeMessage("The world is a dangerous place, not because of those who do evil, but because of those who look on and do nothing. The people who claim to want to change the world are always the ones most afraid of doing anything.", "mrRobotMessage2", 32000);
+        }, 16000); // Delay before typing the Mr. Robot messages
     </script>
 </body>
 </html>
